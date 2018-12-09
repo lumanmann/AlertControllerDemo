@@ -19,30 +19,30 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="CustomAlert" id="i5M-Pr-FkT" customClass="CustomAlert" customModule="UIAlertController" customModuleProvider="target">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53R-UP-1l2">
-                    <rect key="frame" x="166.5" y="202.5" width="42" height="21"/>
+                    <rect key="frame" x="166.5" y="136" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZmX-qY-WY3">
-                    <rect key="frame" x="37.5" y="233.5" width="300" height="200"/>
+                    <rect key="frame" x="37.5" y="167" width="300" height="333.5"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wpw-xG-df3">
-                    <rect key="frame" x="163.5" y="443.5" width="48" height="30"/>
+                    <rect key="frame" x="163.5" y="510.5" width="48" height="30"/>
                     <state key="normal" title="Cancel"/>
                     <connections>
-                        <action selector="cancelClicked:" destination="-1" eventType="touchUpInside" id="1u8-fH-M0r"/>
+                        <action selector="cancelClicked:" destination="-1" eventType="touchUpInside" id="bsm-qp-rl0"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ZmX-qY-WY3" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.3" id="6hw-Um-ojG"/>
+                <constraint firstItem="ZmX-qY-WY3" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.5" id="6hw-Um-ojG"/>
                 <constraint firstItem="53R-UP-1l2" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9FX-mP-nlx"/>
                 <constraint firstItem="ZmX-qY-WY3" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.8" id="EBx-ic-Uu2"/>
                 <constraint firstItem="wpw-xG-df3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="OMU-GL-cv4"/>

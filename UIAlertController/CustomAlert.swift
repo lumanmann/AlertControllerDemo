@@ -8,29 +8,31 @@
 
 import UIKit
 
-class CustomAlert: UIAlertController {
+class CustomAlert: UIViewController{
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cancelBtn: UIButton!
     
+    private var cancleHandler: (() -> Void)?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func setupUI() {
-        titleLabel.text = "SWIFT~~~"
+        titleLabel.text = "Swift~~"
         imageView.image = UIImage(named: "image")
     }
     
-    @IBAction func cancelClicked(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+    
+    func setActionHandler(handler: @escaping () -> Void) {
+        cancleHandler = handler
     }
     
+    @IBAction func cancelClicked(_ sender: UIButton) {
+        if self.cancleHandler == nil {
+            return
+        }
+            self.cancleHandler!()
+    }
+    
+
 }

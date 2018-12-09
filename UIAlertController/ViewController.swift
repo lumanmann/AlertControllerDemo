@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     private var descriptionText: [String]?
     private let titleStr = "Swift"
-    private let messageStr = "作業不做了"
+    private let messageStr = "作業做了嗎"
     
     
     override func viewDidLoad() {
@@ -24,8 +24,8 @@ class ViewController: UIViewController {
                            "兩個按鈕，有點擊事件",
                            "帶圖片",
                            "有文字輸入框",
-                           "List",
-                           "Custom",]
+                           "列表",
+                           "Custom Alert",]
         
         
        self.tableView.delegate = self
@@ -128,7 +128,7 @@ class ViewController: UIViewController {
     
     func listChoiceAlert() {
         
-        let alert = UIAlertController(title: "List", message: "choose one: ", preferredStyle: .actionSheet);
+        let alert = UIAlertController(title: "List", message: "lalala", preferredStyle: .actionSheet);
         
         let action1 = UIAlertAction(title: "Action 1", style: .default, handler: { (_) -> Void in
             print("ACTION 1 selected!")
@@ -156,12 +156,25 @@ class ViewController: UIViewController {
         
     }
     
-    
+     var currentVC = UIViewController()
    
     func customAlert() {
-        let alertVC = CustomAlert(nibName: "CustomAlert", bundle: nil)
-       
+        
+        let alertView = CustomAlert(nibName: "CustomAlert", bundle: nil)
+        self.addChild(alertView)
+        alertView.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.width * 0.7, height: self.view.frame.height * 0.5)
+        alertView.view.center = self.view.center
+        alertView.setActionHandler {
+            self.currentVC.willMove(toParent: nil)
+            self.currentVC.removeFromParent()
+            self.currentVC.view.removeFromSuperview()
+        }
+        self.view.addSubview(alertView.view)
+        alertView.didMove(toParent: self)
+        currentVC = alertView
     }
+    
+   
 
 }
 
@@ -208,7 +221,7 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
             // 有文字輸入框
             withTextFieldAlert()
         case 6:
-            //
+            // List
             listChoiceAlert()
         case 7:
             customAlert()
