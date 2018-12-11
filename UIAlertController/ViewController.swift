@@ -28,8 +28,9 @@ class ViewController: UIViewController {
                            "Custom Alert",]
         
         
-       self.tableView.delegate = self
+        self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.title = "Demo"
         
     }
     
@@ -99,9 +100,10 @@ class ViewController: UIViewController {
         
         alert.view.addConstraint(height);
         
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width * 0.7, height: self.view.frame.height * 0.5))
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 20, width: self.view.frame.width * 0.7, height: self.view.frame.height * 0.5))
         
         imageView.image = UIImage(named: "image")
+      
         
         // 加入圖片
         alert.view.addSubview(imageView)
@@ -156,7 +158,7 @@ class ViewController: UIViewController {
         
     }
     
-     var currentVC = UIViewController()
+    var currentVC = UIViewController()
    
     func customAlert() {
         
@@ -173,8 +175,6 @@ class ViewController: UIViewController {
         alertView.didMove(toParent: self)
         currentVC = alertView
     }
-    
-   
 
 }
 
@@ -224,15 +224,24 @@ extension ViewController : UITableViewDelegate, UITableViewDataSource {
             // List
             listChoiceAlert()
         case 7:
+            // Custom
             customAlert()
         default:
             noButtonAlert()
         }
     }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 65
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 65
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "UIAlertController"
+    }
+    
     
 }
 
